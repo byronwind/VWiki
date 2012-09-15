@@ -80,7 +80,7 @@ h1 {
 
 h2 {
   padding-bottom: 10px;
-  font-size: 32px;
+  font-size: 30px;
   background: url('../images/bg_hr.png') repeat-x bottom;
 }
 
@@ -299,12 +299,25 @@ Full-Width Styles
   background: -ms-linear-gradient(top, #373737, #212121);
   background: -o-linear-gradient(top, #373737, #212121);
   background: linear-gradient(top, #373737, #212121);
+  max-height: 140px;
 }
+
 
 #header_wrap .inner {
-  padding: 50px 10px 30px 10px;
+  padding: 20px 5px 30px 5px;
 }
+.navigator {
 
+  font-size: 18px;  
+  float: right;
+  margin-top:  -10px;
+}
+.navigator a{ 
+  padding-right: 10px;
+}
+.navigator a:hover{
+   color:#fff;
+}
 #project_title {
   margin: 0;
   color: #fff;
@@ -314,11 +327,12 @@ Full-Width Styles
 }
 
 #project_tagline {
+  margin: 0;
   color: #fff;
   font-size: 24px;
   font-weight: 300;
   background: none;
-  text-shadow: #111 0px 0px 10px;
+  text-shadow: #111 0px 0px 0px;
 }
 
 #downloads {

@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<article id="post">
+	<time date="{{ page.date }}">{{ page.date|date_to_long_string }}</time>
+	<div>
+		Category: {{ page.categories | join: ', ' }}
+		&emsp;&emsp;&emsp;&emsp;
+		Tags: {{ page.tags | join: ', ' }}
+	</div>
+
+	{{ content }}
+
+	<hr />
+</article>

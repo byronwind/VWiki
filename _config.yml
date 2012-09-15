@@ -1,0 +1,12 @@
+permalink: /:year/:month/:day/:title.html
+
+auto: true
+pygments: true
+markdown: rdiscount
+author_info: <a href="http://byronwind.github/VWiki/about">Byronwind</a>
+
+
+
+#markdown: redcarpet
+#redcarpet:
+#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
