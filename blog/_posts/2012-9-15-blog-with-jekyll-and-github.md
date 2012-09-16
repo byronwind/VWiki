@@ -2,7 +2,7 @@
 layout: post 
 title: 使用jekyll和github写个人博客
 summary: 在github上使用jekyll写个人博客
-tags:jekyll github
+tags: jekyll github
 ---
 
 {{ page.title }}
