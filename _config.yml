@@ -4,7 +4,7 @@ auto: true
 pygments: true
 markdown: rdiscount
 author_info: <a href="http://byronwind.github/VWiki/about">Byronwind</a>
-
+url: liguoqing.tk
 
 
 #markdown: redcarpet
