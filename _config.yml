@@ -4,7 +4,6 @@ auto: true
 pygments: true
 markdown: rdiscount
 author_info: <a href="http://byronwind.github/VWiki/about">Byronwind</a>
-base_url: /VWiki
 
 #markdown: redcarpet
 #redcarpet:
