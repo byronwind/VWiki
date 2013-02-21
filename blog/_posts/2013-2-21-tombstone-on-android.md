@@ -69,7 +69,7 @@ Crash信号列表
 		</tr> 
     </table>
 
-### Linux 信号处理 sigaction ###  
+### Linux 信号处理 sigaction ###
 
     #include<signal.h>  
     int sigaction(int sig, struct sigaction *act , struct sigaction *oact) ;  
