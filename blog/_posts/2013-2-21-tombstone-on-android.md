@@ -133,7 +133,7 @@ Android 4.0中tombstones处理部分的源码位于 ``` /system/core/debuggerd `
 
 在``` debugger_signal_handler ``` 中，通过socket client 于 /system/core/debuggerd 中的socket server进行通信，在/system/core/debuggerd中进行crash进程的分析( ``` handle_crashing_process ``` 函数中)，生成tombstones文件（``` dump_crash_report ``` 函数）。
 
-``` unwind_backtrace_with_ptrace ``` 函数获取backtrae，通过 
+``` unwind_backtrace_with_ptrace ``` 函数获取backtrae，通过 ptrace 读取寄存器和相关内存地址。
 
 
 
