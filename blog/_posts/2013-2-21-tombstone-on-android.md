@@ -131,11 +131,42 @@ Android 4.0中tombstones处理部分的源码位于 ``` /system/core/debuggerd `
       sigaction(SIGPIPE, &act, NULL);
     }
 
-在``` debugger_signal_handler ``` 中，通过socket client 于 /system/core/debuggerd 中的socket server进行通信，在/system/core/debuggerd中进行crash进程的分析( ``` handle_crashing_process ``` 函数中)，生成tombstones文件（``` dump_crash_report ``` 函数）。
+在``` debugger_signal_handler ``` 中，通过socket client 与 /system/core/debuggerd 中的socket server进行通信，在/system/core/debuggerd中进行crash进程的分析( ``` handle_crashing_process ``` 函数中)，生成tombstones文件（``` dump_crash_report ``` 函数）。
 
 ``` unwind_backtrace_with_ptrace ``` 函数获取backtrae，通过 ptrace 读取寄存器和相关内存地址。
 
+## Google Breakpad 项目 ##
 
+[Google Breakpad][1] 是Google开源的跨平台崩溃转储和分析模块，他支持Windows，Linux和Mac和Solaris系统，并可以编译到Android工程中。Google-breakpad的好处在于可以屏蔽了不同平台的差异，使用统一的文件格式记录和分析符号文件格式和崩溃栈信息。
+
+在Linux系统上，google-breakpad也是通过信号机制来捕获crash，大致过程可以通过源码中的注释了解：
+
+    //    The signal flow looks like this:
+    
+    //  SignalHandler (uses a global stack of ExceptionHandler objects to find
+    //        |         one to handle the signal. If the first rejects it, try
+    //        |         the second etc...)
+    //        V
+    //   HandleSignal ----------------------------| (clones a new process which
+    //        |                                   |  shares an address space with
+    //   (wait for cloned                         |  the crashed process. This
+    //     process)                               |  allows us to ptrace the crashed
+    //        |                                   |  process)
+    //        V                                   V
+    //   (set signal handler to             ThreadEntry (static function to bounce
+    //    SIG_DFL and rethrow,                    |      back into the object)
+    //    killing the crashed                     |
+    //    process)                                V
+    //                                          DoDump  (writes minidump)
+    //                                            |
+    //                                            V
+    //                                         sys_exit
+
+客户端中google-breakpad的使用也很简单，可以参照官方wiki的教程文档：[How To Add Breakpad To Your Linux Application][2] 。
+
+
+ [1]: http://code.google.com/p/google-breakpad
+ [2]: http://code.google.com/p/google-breakpad/wiki/LinuxStarterGuide
 
 
 
