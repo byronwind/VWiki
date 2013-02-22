@@ -10,7 +10,7 @@ tags: android,native crash
 
 Android开发中，在Java层可以方便的捕获crashlog，但对于 Native 层的 crashlog 通常无法直接获取，只能通过系统的logcat来分析crash日志。
 
-做过 Linux 和 Win32 开发的都知道，在pc上程序crash时可以生成 core dump 文件通过相关的工具分析函数调用堆栈
+做过 Linux 和 Win32 开发的都知道，在pc上程序crash时可以生成 core dump 文件通过相关的工具分析函数调用堆栈及崩溃时的内存信息。
 
 那么作为软件开发者有没有方法自己获取native层的crashlog呢？Android 系统是 Linux 内核，既然在Linux中crash时可以生成dump文件，那么在Android中也是有办法的。
 
@@ -20,7 +20,7 @@ Android开发中，在Java层可以方便的捕获crashlog，但对于 Native �
 
 对 Linux 应用程序而言， 因为有 glibc 库的支持， 所以构造程序的函数调用链相对容易。在 glibc 库提供的关于堆栈回朔的一系列库函数中，其核心函数是 ``` backtrace() ```。它负责遍历从程序入口点到当前调用点的所有堆栈帧，然后生成函数调用的地址序列。为了完成函数地址和函数名称的转换，函数 ``` backtrace_symbols() ``` 负责将 ``` backtrace() ```生成的地址序列转换成一系列字符串列表，在每个字符串列表中包括了函数名称，当前指令在函数中的偏移量和函数的返回地址。由于 ``` backtrace_symbols() ``` 需要动态申请空间以保存字符串列表，如果应用程序 crash 时破坏了系统内存，可能导致 backtrace_symbols()结果错误。为此，glibc库还提供了一个更安全的地址转换函数：``` backtrace_symbols_fd() ``` 。该函数将生成的字符串直接输出到外部文件，而不再需要申请新的内存空间。对于 ```backtrace() ``` 的详细使用方法可以通过 ``` man backtrace ``` 查看。
 
-在Andrid中，由于谷歌没有使用glibc库，而是使用了精简版本的bionic库，其中并没有 ``` backtrace() ``` 可用。
+在Andrid中，由于谷歌没有使用glibc库，而是使用了精简版本的bionic库，其中并没有 ``` backtrace() ``` 可用。获取调用堆栈还需要采用其他方法。
 
 ### Linux 信号机制 ###
 
@@ -40,33 +40,33 @@ Crash信号列表
             <td>Description</td>
         </tr>
         <tr>
-        	<td>SIGSEGV</td>
-        	<td> Invalid memory reference. </td>
+          <td>SIGSEGV</td>
+          <td> Invalid memory reference. </td>
         </tr>
         <tr>
-        	<td>SIGBUS</td>
-        	<td> Access to an undefined portion of a memory object. </td>
+          <td>SIGBUS</td>
+          <td> Access to an undefined portion of a memory object. </td>
         </tr>
         <tr>
-        	<td>SIGFPE</td>
+          <td>SIGFPE</td>
             <td>Arithmetic operation error, like divide by zero. </td>
         </tr>
-		<tr>
-			<td>SIGILL </td>
-			<td> Illegal instruction, like execute garbage or a privileged instruction </td>
-		</tr>
-		<tr>
-			<td>SIGSYS</td>
-			<td> Bad system call.</td>
-		</tr> 
-		<tr>
-			<td>SIGXCPU </td>
-			<td> CPU time limit exceeded. </td>
-		</tr> 
-		<tr>
-			<td>SIGXFSZ</td>
-			<td>  File size limit exceeded. </td>
-		</tr> 
+    <tr>
+      <td>SIGILL </td>
+      <td> Illegal instruction, like execute garbage or a privileged instruction </td>
+    </tr>
+    <tr>
+      <td>SIGSYS</td>
+      <td> Bad system call.</td>
+    </tr> 
+    <tr>
+      <td>SIGXCPU </td>
+      <td> CPU time limit exceeded. </td>
+    </tr> 
+    <tr>
+      <td>SIGXFSZ</td>
+      <td>  File size limit exceeded. </td>
+    </tr> 
     </table>
 
 ### Linux 信号处理 sigaction ###
@@ -102,8 +102,8 @@ Crash信号列表
         sa.sa_sigaction = sig_handler_with_arg;
         sa.sa_flags = SA_RESETHAND;
   
- 		sigaction(SIGSEGV, &sa, NULL);
- 		...
+    sigaction(SIGSEGV, &sa, NULL);
+    ...
      }
 
 ## Android tombstones 分析 ##
@@ -167,6 +167,3 @@ Android 4.0中tombstones处理部分的源码位于 ``` /system/core/debuggerd `
 
  [1]: http://code.google.com/p/google-breakpad
  [2]: http://code.google.com/p/google-breakpad/wiki/LinuxStarterGuide
-
-
-
