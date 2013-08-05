@@ -5,7 +5,7 @@ summary: Jupiter 是为Eclipse开发的一款开源code review工具插件，使
 tags: eclipse，code review
 ---
 
-{{ page.title }}
+Eclipse中使用Jupiter插件进行代码Review
 ================
 
 ## About Jupiter

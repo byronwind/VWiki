@@ -291,13 +291,45 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "404.md",
+			"settings":
+			{
+				"buffer_size": 114,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 282.0,
+		"height": 336.0,
 		"selected_items":
 		[
+			[
+				"view",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"VIEW",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"viewpd",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"viewp",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"pdf",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"mark",
+				"Markdown Preview: preview in Browser"
+			],
 			[
 				"markdw",
 				"Markdown Preview: preview in Browser"
@@ -323,7 +355,7 @@
 				"Package Control: Add Channel"
 			]
 		],
-		"width": 498.0
+		"width": 386.0
 	},
 	"console":
 	{
@@ -340,6 +372,17 @@
 	},
 	"file_history":
 	[
+		"/D/Program Files/SublimeText/Data/Packages/User/Preferences.sublime-settings",
+		"/D/Program Files/SublimeText/Data/Packages/Default/Preferences.sublime-settings",
+		"/E/Documents/Dropbox/byronwind.github.com/README",
+		"/E/Documents/Dropbox/byronwind.github.com/index.md",
+		"/E/Documents/Dropbox/Dive-into-Dalvik/doc/Dive-into-Dalvik.tex",
+		"/E/Documents/Dropbox/byronwind.github.com/blog/_posts/2013-2-21-tombstone-on-android.md",
+		"/E/Documents/Dropbox/Dive-into-Dalvik/doc/Dive-into-Dalvik.sty",
+		"/E/Documents/Dropbox/Dive-into-Dalvik/README.md",
+		"/E/Documents/Dropbox/Dive-into-Dalvik/doc/tex-live.sty",
+		"/C/Users/liguoqing/Desktop/test.tex",
+		"/E/Documents/Dropbox/byronwind.github.com/blog/_posts/2013-3-8-memory-leak-on-android.md",
 		"/D/Program Files/SublimeText/Data/Packages/Markdown Preview/sample.md",
 		"/D/Program Files/SublimeText/Data/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
 		"/D/baidumap/platforms/android/BaiduMap/AndroidManifest.xml",
@@ -352,8 +395,6 @@
 		"/D/baidumap/platforms/android/BaiduMap/src/com/baidu/BaiduMap/map/localmap/LMNotificationManager.java",
 		"/D/baidumap/platforms/android/BaiduMap/src/com/baidu/platform/comapi/map/MapGLSurfaceView.java",
 		"/D/baidumap/platforms/android/BaiduMap/src/com/baidu/platform/comapi/map/MapController.java",
-		"/D/Program Files/SublimeText/Data/Packages/Default/Preferences.sublime-settings",
-		"/D/Program Files/SublimeText/Data/Packages/User/Preferences.sublime-settings",
 		"/D/baidumap/platforms/android/BaiduMap/src/com/baidu/baidumap/map/mainmap/SelectPointActivity.java",
 		"/D/baidumap/platforms/android/BaiduMap/src/com/baidu/baidumap/BaiduMapApplication.java",
 		"/D/baidumap/platforms/android/BaiduMap/src/com/baidu/baidumap/location/LocationManager.java",
@@ -389,6 +430,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"theme",
+			"theme:",
+			"defaultfontfeatures",
 			"Log",
 			"mGestureDetector",
 			"THEME",
@@ -429,8 +473,36 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "404.md",
+					"settings":
+					{
+						"buffer_size": 114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -465,6 +537,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 288.0
+	},
 	"replace":
 	{
 		"height": 62.0
@@ -630,6 +706,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 112.0,
+	"side_bar_width": 162.0,
 	"status_bar_visible": false
 }
