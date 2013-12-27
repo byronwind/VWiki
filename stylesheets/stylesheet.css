@@ -60,7 +60,7 @@ body {
   color:#373737;
   background: #212121;
   font-size: 14px;
-  font-family: "Helvetica Neue",Helvetica,STheiti,Î¢ÈíÑÅºÚ,ºÚÌå,Arial,Tahoma,sans-serif,serif;
+  font-family: "Helvetica Neue",Helvetica,STheiti,ºÚÌå,Arial,Tahoma,sans-serif,serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 700;
   color:#222222;
-  font-family: Helvetica,STheiti,Î¢ÈíÑÅºÚ,ºÚÌå,Arial,Tahoma,serif;
+  font-family: Helvetica,STheiti,ºÚÌå,Arial,Tahoma,serif;
   letter-spacing: -1px;
 }
 
