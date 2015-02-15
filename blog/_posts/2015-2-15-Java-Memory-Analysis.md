@@ -21,7 +21,7 @@ Java 虚拟机在执行 Java 程序过程中会把它所管理的内存划分为
 
 《Java 虚拟机规范》中，Java 虚拟机所管理的内存包含的运行时数据区域如图：
 
-![Java 虚拟机运行时数据区](https://github.com/byronwind/VWiki/blob/gh-pages/images/jvm_architecture.png)
+![Java 虚拟机运行时数据区](https://raw.githubusercontent.com/byronwind/VWiki/gh-pages/images/jvm_architecture.png)
 
 这几个区域如下：
 
@@ -69,7 +69,7 @@ Java 虚拟机在执行 Java 程序过程中会把它所管理的内存划分为
 
 	为了计算Retained Heap，可以将堆中的对象关系理解为一张图，堆中的对象构成图中的节点，图的边表示对象的引用关系。
 
-	![Retained Objects](https://github.com/byronwind/VWiki/blob/gh-pages/images/retained_objects.png)
+	![Retained Objects](https://raw.githubusercontent.com/byronwind/VWiki/gh-pages/images/retained_objects.png)
 
 	图中，假设 obj1 被回收，GC 可以回收 obj1、obj2、obj4 三个对象（obj3 被 GC Roots 引用，不会被回收），因此 obj1 的 Retained Heap大小即为 obj1、obj2 和 obj4 的 Shallow Heap 大小。
 
@@ -86,7 +86,7 @@ Java 虚拟机在执行 Java 程序过程中会把它所管理的内存划分为
 
 	在支配树中，每个节点存储了该对象的RetainedHeap大小。下图是一个DominatorTree的示例：
 
-	![Dominator Tree](https://github.com/byronwind/VWiki/blob/gh-pages/images/dominator.png) 
+	![Dominator Tree](https://raw.githubusercontent.com/byronwind/VWiki/gh-pages/images/dominator.png) 
 
 	- A、B、C节点被一个虚拟的root节点支配。
 	- 支配关系是可传递的，C 支配 E，E 支配 G ，所以有 C 支配 G。
